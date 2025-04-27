@@ -103,7 +103,11 @@
     max-width: 80%;
   }
   
-  /* Responsividade */
+  .errorMessage {
+    margin: 0;
+    font-size: 16px;
+  }
+  
   @media (max-width: 768px) {
     .filmGrid {
       justify-content: center;

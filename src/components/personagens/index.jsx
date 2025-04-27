@@ -2,10 +2,10 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import styles from "./personagens.module.css"; // Importando o CSS para estilização
+import styles from "./personagens.module.css"; 
 
 export default function FilmList() {
-  const url = "https://hp-api.onrender.com/api/characters"; //Link da API externa
+  const url = "https://hp-api.onrender.com/api/characters";
 
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,12 +53,15 @@ if (error) {
         {films.map((film) => (
           <div key={film.id} className={styles.filmCard}>
             <div className={styles.imageContainer}>
-              <img src={film.image} alt={film.title} className={styles.image} />
+              <img 
+              src={film.image} 
+              alt={film.title || "Imagem não disponivel"} 
+              className={styles.image} />
             </div>
             <div className={styles.content}>
-              <h2 className={styles.filmTitle}>{film.title}</h2>
-              <p className={styles.director}>Diretor: {film.director}</p>
-              <p className={styles.year}>{film.release_date}</p>
+              <h2 className={styles.filmTitle}>{film.name}</h2>
+              <p className={styles.director}>Casa: {film.house}</p>
+              <p className={styles.year}>Patrono: {film.patronus}</p>
               <div className={styles.rating}>
                 <span className={styles.score}>{film.rt_score}%</span>
               </div>
